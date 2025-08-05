@@ -8,11 +8,9 @@
 
 
 ```
-*Создайте новый проект и пустой репозиторий в нём.*
 
-```
 *Зарегистрируйте gitlab-runner для этого проекта и запустите его в режиме Docker. Раннер можно регистрировать и запускать на той же виртуальной машине, на которой запущен GitLab.*
-
+```
 ![Этапы регистрации gitlab-runner](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/runner-registration.png)
 
 ![Запущенный gitlab-runner](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/runner.png)
