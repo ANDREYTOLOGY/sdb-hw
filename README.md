@@ -25,13 +25,15 @@
 
 ### Задание 2
 
-1. `Запушьте репозиторий на GitLab, изменив origin.
-   Использовались команды
+1. `Запушьте репозиторий на GitLab, изменив origin.`
+  ` Для выполнения данного пункта использовались команды`
+   ```bash
     git clone https://github.com/netology-code/sdvps-materials.git
    cd sdvps-materials
    git remote remove origin
    git remote add my_gitlab http://212.192.127.90/root/sdvps-materials.git
-   git push my_gitlab`
+   git push my_gitlab
+   ```
    ![git_push](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/push_mygitlab.png)
 3. `Создайте .gitlab-ci.yml, описав в нём все необходимые, на ваш взгляд, этапы.`
 4. `Заполните здесь этапы выполнения, если требуется ....`
