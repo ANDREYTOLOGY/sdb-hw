@@ -15,7 +15,7 @@
 ```
 
 `При необходимости прикрепитe сюда скриншоты
-![Версия Gitlab]([ссылка на скриншот 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/gitlab_install.png))`
+![Версия Gitlab](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/gitlab_install.png)`
 
 
 ---
