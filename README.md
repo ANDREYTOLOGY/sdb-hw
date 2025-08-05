@@ -36,9 +36,10 @@
    ```
    ![git_push](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/push_mygitlab.png)
 2. `Создайте .gitlab-ci.yml, описав в нём все необходимые, на ваш взгляд, этапы.`
+   
    `Был использован пример из лекции с содержимым  .gitlab-ci.yml`
-   ```
-   stages:
+```yml
+stages:
   - test
   - build
 
@@ -46,7 +47,7 @@ test:
   stage: test
   image: golang:1.17
   script: 
-   - go test .
+    - go test .
   tags:
     - netology
 
@@ -54,8 +55,8 @@ build:
   stage: build
   image: docker:latest
   script:
-   - docker build .
+    - docker build .
   tags:
     - netology
-   ```
+```
 ![gitlab_ci](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/gitlab-ci.png)
