@@ -37,7 +37,7 @@
    ![git_push](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/push_mygitlab.png)
 2. `Создайте .gitlab-ci.yml, описав в нём все необходимые, на ваш взгляд, этапы.`
    `Был использован пример из лекции с содержимым  .gitlab-ci.yml`
-   ```yaml
+   ```
    stages:
   - test
   - build
