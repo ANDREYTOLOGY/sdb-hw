@@ -16,7 +16,7 @@
 ```
 В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.
 ```
-![Запущенный gitlab-runner](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/runner.png)
+  ![Запущенный gitlab-runner](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/runner.png)
 
 
 
@@ -25,14 +25,19 @@
 
 ### Задание 2
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
+1. `Запушьте репозиторий на GitLab, изменив origin.
+   Использовались команды
+    git clone https://github.com/netology-code/sdvps-materials.git
+   cd sdvps-materials
+   git remote remove origin
+   git remote add my_gitlab http://212.192.127.90/root/sdvps-materials.git
+   git push my_gitlab`
+   ![git_push](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/push_mygitlab.png)
+3. `Создайте .gitlab-ci.yml, описав в нём все необходимые, на ваш взгляд, этапы.`
 4. `Заполните здесь этапы выполнения, если требуется ....`
 5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+6. `Заполните здесь этапы выполнения, если требуется ....`
+7. 
 
 ```
 Поле для вставки кода...
