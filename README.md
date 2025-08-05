@@ -14,8 +14,8 @@
 ....
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Версия Gitlab](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/gitlab_install.png)`
+
+![Версия Gitlab](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/gitlab_install.png)
 
 
 ---
