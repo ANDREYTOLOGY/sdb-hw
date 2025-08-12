@@ -1,10 +1,10 @@
-# Домашнее задание к занятию "`GitLab`" - `Чернышов Андрей`
+# Домашнее задание к занятию "`Система мониторинга Zabbix`" - `Чернышов Андрей`
 
 ### Задание 1
 
-`GitLab был установлен локально на сервере Ubuntu 24.04`
+`Авторизация в админке Zabbix Server после установки`
 
-![Версия Gitlab](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/gitlab_install.png)
+![Админка Zabbix](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix_admin.png)
 
 
 ```
