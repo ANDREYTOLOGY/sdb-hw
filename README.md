@@ -8,15 +8,17 @@
 
 
 ```
-
-*Зарегистрируйте gitlab-runner для этого проекта и запустите его в режиме Docker. Раннер можно регистрировать и запускать на той же виртуальной машине, на которой запущен GitLab.*
+apt install postgresql
+# wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian12_all.deb
+# dpkg -i zabbix-release_latest_7.0+debian12_all.deb
+# apt update
+# apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-nginx-conf zabbix-sql-scripts zabbix-agent
+# sudo -u postgres createuser --pwprompt zabbix
+# sudo -u postgres createdb -O zabbix zabbix
+# zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
+# systemctl restart zabbix-server zabbix-agent nginx php8.2-fpm
+# systemctl enable zabbix-server zabbix-agent nginx php8.2-fpm
 ```
-![Этапы регистрации gitlab-runner](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/runner-registration.png)
-
-![Запущенный gitlab-runner](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/runner.png)
-
-
----
 
 ### Задание 2
 
