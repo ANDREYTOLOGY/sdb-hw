@@ -22,7 +22,7 @@ apt install postgresql
 
 ### Задание 2
 
-1. `Скриншот "Configuration > Hosts":`
+1. `Скриншот "Monitoring > Hosts":`
    ![Zabbix-hosts](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-hosts.png)
 2. `Скриншот лога Zabbix Agent:`
    ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-agent.png)
