@@ -25,13 +25,7 @@ apt install postgresql
 1. `Скриншот "Configuration > Hosts":`
    ![Zabbix-hosts](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-hosts.png)
   ` Для выполнения данного пункта использовались команды`
-   ```bash
-    git clone https://github.com/netology-code/sdvps-materials.git
-   cd sdvps-materials
-   git remote remove origin
-   git remote add my_gitlab http://212.192.127.90/root/sdvps-materials.git
-   git push my_gitlab
-   ```
+
    ![git_push](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/push_mygitlab.png)
 2. `Скриншот лога Zabbix Agent:`
    ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-agent.png)
@@ -39,11 +33,11 @@ apt install postgresql
    ![Zabbix-Latest-data](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix_latest.png)
  
 5. ` Для выполнения данного пункта использовались команды`
-   ```bash
+```bash
 wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu22.04_all.deb
 dpkg -i zabbix-release_latest_7.0+ubuntu22.04_all.deb
 apt update
 apt install zabbix-agent
 systemctl restart zabbix-agent
 systemctl enable zabbix-agent
-   ```
+```
