@@ -6,7 +6,7 @@
 
 ![Админка Zabbix](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix_admin.png)
 
-
+` Для выполнения данного пункта использовались команды`
 ```
 apt install postgresql
 # wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian12_all.deb
@@ -24,9 +24,6 @@ apt install postgresql
 
 1. `Скриншот "Configuration > Hosts":`
    ![Zabbix-hosts](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-hosts.png)
-  ` Для выполнения данного пункта использовались команды`
-
-   ![git_push](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/push_mygitlab.png)
 2. `Скриншот лога Zabbix Agent:`
    ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-agent.png)
 3. `Скриншот "Monitoring > Latest data":`
