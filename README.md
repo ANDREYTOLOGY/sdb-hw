@@ -22,7 +22,8 @@ apt install postgresql
 
 ### Задание 2
 
-1. `Запушьте репозиторий на GitLab, изменив origin.`
+1. `Скриншот "Configuration > Hosts":`
+   ![Zabbix-hosts](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-hosts.png)
   ` Для выполнения данного пункта использовались команды`
    ```bash
     git clone https://github.com/netology-code/sdvps-materials.git
@@ -32,28 +33,15 @@ apt install postgresql
    git push my_gitlab
    ```
    ![git_push](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/push_mygitlab.png)
-2. `Создайте .gitlab-ci.yml, описав в нём все необходимые, на ваш взгляд, этапы.`
-   
-   `Был использован пример из лекции с содержимым  .gitlab-ci.yml`
-```yml
-stages:
-  - test
-  - build
-
-test:
-  stage: test
-  image: golang:1.17
-  script: 
-    - go test .
-  tags:
-    - netology
-
-build:
-  stage: build
-  image: docker:latest
-  script:
-    - docker build .
-  tags:
-    - netology
-```
-![gitlab_ci](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/gitlab-ci.png)
+3. `Скриншот лога Zabbix Agent:`
+   ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-agent.png)
+ 
+3. ` Для выполнения данного пункта использовались команды`
+   ```bash
+# wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu22.04_all.deb
+# dpkg -i zabbix-release_latest_7.0+ubuntu22.04_all.deb
+# apt update
+# apt install zabbix-agent
+# systemctl restart zabbix-agent
+# systemctl enable zabbix-agent
+   ```
