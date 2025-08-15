@@ -36,14 +36,14 @@ apt install postgresql
 2. `Скриншот лога Zabbix Agent:`
    ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-agent.png)
 3. `Скриншот "Monitoring > Latest data":`
-   ![Zabbix-Latest-data](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-latest.png)
+   ![Zabbix-Latest-data](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix_latest.png)
  
 5. ` Для выполнения данного пункта использовались команды`
    ```bash
-# wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu22.04_all.deb
-# dpkg -i zabbix-release_latest_7.0+ubuntu22.04_all.deb
-# apt update
-# apt install zabbix-agent
-# systemctl restart zabbix-agent
-# systemctl enable zabbix-agent
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu22.04_all.deb
+dpkg -i zabbix-release_latest_7.0+ubuntu22.04_all.deb
+apt update
+apt install zabbix-agent
+systemctl restart zabbix-agent
+systemctl enable zabbix-agent
    ```
