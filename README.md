@@ -10,7 +10,7 @@
 ### Задание 2-3
 
 1. `Скриншот "Configuration > Hosts":`
-   ![Zabbix-hosts](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-hosts.png)
+   ![Zabbix-hosts](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-host.png)
 2. `Скриншот "Monitoring > Latest data":`
    ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix_latest-data.png)
 
