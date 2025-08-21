@@ -16,4 +16,4 @@
 
 ### Задание 4
 5. ` Скриншот созданного дашборда:`
- ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-agent.png)
+ ![Zabbix-agent](https://github.com/ANDREYTOLOGY/zabbixx-hw/blob/main/img/zabbix-dashboard.png)
