@@ -13,7 +13,7 @@
 
 ### Задание 3. Logstash
 Скриншот интерфейса Kibana, на котором видны логи Nginx.
-![del key memcached](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/elk-3.png)
+![del key memcached](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/Elk-3.png)
 
 
 
