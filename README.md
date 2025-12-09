@@ -1,25 +1,23 @@
-# Домашнее задание к занятию "`Кеширование Redis/memcached`" - `Чернышов Андрей`
+# Домашнее задание к занятию "`ELK`" - `Чернышов Андрей`
 
 ### Задание 1
-### Кеширование
-Приведите примеры проблем, которые может решить кеширование.
+### Elasticsearch
+Установите и запустите Elasticsearch, после чего поменяйте параметр cluster_name на случайный.
+Скриншот скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch.
+![systemctl status memcached](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/elk-1.png)
 
-*1. **Повышение производительности и снижение задержки:** Кеширование данных в быстрой памяти (например, оперативной памяти) позволяет получать к ним доступ в сотни раз быстрее, чем при обращении к основному источнику (базе данных на диске). Это особенно критично для часто запрашиваемой информации.  
-2. **Увеличение скорости ответа:** обеспечивается благодаря сокращению времени доступа к данным по сравнению с основным источником.  
-3. **Экономия ресурсов базы данных** происходит путем разгрузки от повторяющихся сложных вычислений и частых запросов.  
-4. **Обработка повторяющихся запросов:** Некоторые данные могут запрашиваться тысячи раз в секунду. Кеширование таких данных предотвращает постоянные обращения к базе данных и потенциальные "точки отказа".*
 
-### Задание 2. Memcached
-Скриншот systemctl status memcached
-![systemctl status memcached](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/status_memcached.png)
+### Задание 2. Kibana
+Скриншот интерфейса Kibana c запросом GET /_cluster/health?pretty
+![systemctl status memcached](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/elk-2.png)
 
-### Задание 3. Удаление по TTL в Memcached
-Запишите в memcached несколько ключей с любыми именами и значениями, для которых выставлен TTL 5.
-![del key memcached](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/del_key_memcached.png)
+### Задание 3. Logstash
+Скриншот интерфейса Kibana, на котором видны логи Nginx.
+![del key memcached](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/elk-3.png)
 
 
 
-### Задание 4. Запись данных в Redis
-Запишите в Redis несколько ключей с любыми именами и значениями.
+### Задание 4. Filebeat
+Скриншот интерфейса Kibana, на котором видны логи Nginx, которые отправлены через Filebeat.
 
-![redis cli](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/redis_cli.png)
+![redis cli](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/elk-4.png)
