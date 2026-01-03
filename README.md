@@ -18,4 +18,4 @@
 
 ### Задание 2.
 
-![redis cli](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/mysql1.jpg)
+![redis cli](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/mysql6.jpg)
