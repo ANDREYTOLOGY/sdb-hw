@@ -53,15 +53,6 @@
 Магазины: разделение по географическому признаку
 ```
 
+![Блок-схема](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/block.jpg)
 
-Скриншот запущенных контейнеров
-![docker ps](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/dockerps.jpg)
 
-Скриншот Master status
-![master status](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/master-status.jpg)
-
-Скриншот Slave status
-![slave status](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/slave-status.jpg)
-
-Cкриншот тестирования Master-Slave
-![master slave](https://github.com/ANDREYTOLOGY/sdb-hw/blob/main/img/master-slave.jpg)
