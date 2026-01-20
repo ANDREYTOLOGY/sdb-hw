@@ -11,7 +11,7 @@
 
 ### Задание 3 
 ![Docker 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker3.png)
-Контейнер остановился, потому что docker attach подключает меня к главному процессу контейнера, а Ctrl-C отправляет ему сигнал SIGINT. Главный процесс завершился — значит контейнер завершился.
+Контейнер остановился, потому что ``` docker attach```  подключает меня к главному процессу контейнера, а ``` Ctrl-C```  отправляет ему сигнал SIGINT. Главный процесс завершился — значит контейнер завершился.
 
 ![Docker 4](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker4.png)
 
