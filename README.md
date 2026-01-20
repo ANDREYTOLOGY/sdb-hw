@@ -9,18 +9,13 @@
 
 ![Docker "ChernyshovAndrey-custom-nginx-t2"](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker.png)
 
-### Задание 3 MySQL
+### Задание 3 
+![Docker 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker3.png)
+Контейнер остановился, потому что docker attach подключает меня к главному процессу контейнера, а Ctrl-C отправляет ему сигнал SIGINT. Главный процесс завершился — значит контейнер завершился.
 
-3.1. С помощью официальной документации приведите пример команды инкрементного резервного копирования базы данных MySQL.
+![Docker 4](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker4.png)
 
-mysqlbackup --defaults-file=/home/dbadmin/my.cnf \  
-  --incremental --incremental-base=history:last_backup \  
-  --backup-dir=/home/dbadmin/temp_dir \  
-  --backup-image=incremental_image1.bi \  
-   backup-to-image  
-
-
-
-
-
+![Docker 5](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5.png)
+ Проброс порта остался прежним: 127.0.0.1:8080 слушает docker контейнер:80, но т.к. мы изменили конфиг nginx, и он теперь слушает 81, а не 80. Поэтому curl http://127.0.0.1:8080 не получит страницу, потому что внутри контейнера на порту 80 нет сервиса.
+ 
 
