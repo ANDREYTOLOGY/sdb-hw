@@ -1,13 +1,12 @@
-# Домашнее задание к занятию "`Оркестрация группой Docker контейнеров на примере Docker Compose`" - `Чернышов Андрей`
+# Домашнее задание к занятию "`Практическое применение Docker`" - `Чернышов Андрей`
 
 ### Задание 1
 
-(https://hub.docker.com/repository/docker/andrey1613/custom-nginx/general)
+![Docker 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-1.png)
 
+### Задание 3
 
-### Задание 2
-
-![Docker "ChernyshovAndrey-custom-nginx-t2"](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker2.png)
+![Docker 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-2.png)
 
 ### Задание 3 
 ![Docker 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker3.png)
