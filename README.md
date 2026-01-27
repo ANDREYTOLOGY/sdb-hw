@@ -14,10 +14,12 @@
 ![Docker 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-4.png)
 
 
- ### Задание 6
+ ### Задание 6.1
 
-![Docker 6](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker6.png)
-![Docker 7](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker7.png)
+![Docker 6](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker6-1.png)
+
+ ### Задание 6.2
+![Docker 7](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker6-2.png)
 
  ### Задание 5
 
