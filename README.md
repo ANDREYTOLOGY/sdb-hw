@@ -11,7 +11,7 @@
 ### Задание 4
 ![Docker 3.0](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-3.0.png)
 
-![Docker 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-3.png)
+![Docker 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-4.png)
 
 
  ### Задание 6
