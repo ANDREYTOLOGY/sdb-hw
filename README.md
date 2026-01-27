@@ -8,16 +8,13 @@
 
 ![Docker 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-2.png)
 
-### Задание 3 
+### Задание 4
+![Docker 3.0](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5-3.0.png)
+
 ![Docker 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker3.png)
-Контейнер остановился, потому что ``` docker attach```  подключает меня к главному процессу контейнера, а ``` Ctrl-C```  отправляет ему сигнал SIGINT. Главный процесс завершился — значит контейнер завершился.
 
-![Docker 4](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker4.png)
 
-![Docker 5](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker5.png)
- Проброс порта остался прежним: 127.0.0.1:8080 слушает docker контейнер:80, но т.к. мы изменили конфиг nginx, и он теперь слушает 81, а не 80. Поэтому curl http://127.0.0.1:8080 не получит страницу, потому что внутри контейнера на порту 80 нет сервиса.
-
- ### Задание 4
+ ### Задание 6
 
 ![Docker 6](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker6.png)
 ![Docker 7](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/docker7.png)
