@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Введение в Terraform`" - `Чернышов Андрей`
+<img width="1810" height="614" alt="image" src="https://github.com/user-attachments/assets/847dc0e8-26e7-4bff-9d2e-cc3dad16ec82" /># Домашнее задание к занятию "`Введение в Terraform`" - `Чернышов Андрей`
 
 ### Задание 1
 
@@ -28,19 +28,28 @@ resource "docker_container" "nginx" {
   image = docker_image.nginx.image_id
   name  = "example_${random_password.random_string.result}"
 ```
+Вывод docker ps  
+![terraform 4](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-4.png)  
 
+6. Вывод docker ps c исправленным name контейнера  
+![terraform 5](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-4.png)
 
+Terraform применит изменения без показа плана и без вопроса “yes/no”. Можно случайно разрушить/пересоздать ресурсы не в том окружении или не с теми переменными, особенно в проде.  
+Основное назначение использования ключа - для автоматизации: CI/CD пайплайны, скрипты деплоя, когда Terraform запускается неинтерактивно.  
 
-### Задание 2
-Создан файл-контейнер размером 100 МБ и подключён как loop-устройство /dev/loop0.
-Это устройство будет использовано для последующего шифрования с помощью LUKS.
-![host 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/host-3.png)  
-Выполнена команда cryptsetup luksFormat /dev/loop0.
-Показано предупреждение об удалении данных и ввод пароля, что подтверждает успешную инициализацию LUKS-шифрования.  
-![host 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/host-4.png)  
-Создана файловая система ext4 на зашифрованном устройстве /dev/mapper/secure100, выполнено монтирование в каталог /mnt/secure100.  
-Команда df -h подтверждает наличие подключённого зашифрованного раздела.
-![host 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/host-5.png)  
-В зашифрованный раздел записан файл secret.txt с содержимым TOP SECRET DATA, после чего раздел размонтирован и закрыт.  
-Вывод hexdump устройства /dev/loop0 показывает нечитаемые зашифрованные данные, подтверждая работу LUKS.
-![host 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/host-6.png)  
+7. Cодержимое файла terraform.tfstate.
+```terraform
+  {
+  "version": 4,
+  "terraform_version": "1.12.2",
+  "serial": 15,
+  "lineage": "86f9558b-6bdf-e5b1-3022-c2ecade8e431",
+  "outputs": {},
+  "resources": [],
+  "check_results": null
+}
+```
+
+8. В документации kreuzwerker/docker для docker_image параметр keep_locally описан как: если true — образ не удаляется при destroy. Если этот параметр убрать или установить keep_locally = false, то образ будет удалён вместе с ресурсами.
+keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
+
