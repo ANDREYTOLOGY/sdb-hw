@@ -53,3 +53,40 @@ Terraform применит изменения без показа плана и 
 8. В документации kreuzwerker/docker для docker_image параметр keep_locally описан как: если true — образ не удаляется при destroy. Если этот параметр убрать или установить keep_locally = false, то образ будет удалён вместе с ресурсами.  
 keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
 
+
+Листинг main.tf
+```terraform
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+    }
+  }
+  required_version = "~>1.12.0"
+}
+provider "docker" {}
+
+
+resource "random_password" "random_string" {
+  length      = 16
+  special     = false
+  min_upper   = 1
+  min_lower   = 1
+  min_numeric = 1
+}
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.image_id
+  name  = "hello_world"
+
+  ports {
+    internal = 80
+    external = 9090
+  }
+}
+```
