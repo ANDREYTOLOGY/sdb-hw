@@ -31,8 +31,8 @@ resource "docker_container" "nginx" {
 Вывод docker ps  
 ![terraform 4](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-4.png)  
 
-6. Вывод docker ps c исправленным name контейнера    
-![terraform 5](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-4.png)
+6. Вывод docker ps c исправленным name контейнера  
+![terraform 5](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-5.png)
 
 Terraform применит изменения без показа плана и без вопроса “yes/no”. Можно случайно разрушить/пересоздать ресурсы не в том окружении или не с теми переменными, особенно в проде.  
 Основное назначение использования ключа - для автоматизации: CI/CD пайплайны, скрипты деплоя, когда Terraform запускается неинтерактивно.  
