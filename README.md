@@ -1,13 +1,35 @@
-# Домашнее задание к занятию "`Защита хоста`" - `Чернышов Андрей`
+# Домашнее задание к занятию "`Введение в Terraform`" - `Чернышов Андрей`
 
 ### Задание 1
 
-Показано содержимое каталога ~/plain пользователя cryptouser до шифрования.  
-В каталоге находятся обычные текстовые файлы secret1.txt и secret2.txt, доступные для чтения.  
-![host 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/host-1.png)  
-Отображается домашний каталог пользователя после включения eCryptfs.  
-Каталог .Private содержит зашифрованные файлы с нечитаемыми именами, что подтверждает применение шифрования.
-![host 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/host-2.png)  
+1. проверка версии Terraform 
+![terraform 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-1.png)  
+
+terraform init  
+![terraform 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-2.png)  
+
+2. Допустимо хранить секреты в файле personal.auto.tfvars, потому что он явно игнорируется .gitignore и при этом Terraform автоматически подхватывает *.auto.tfvars.
+3. Ключ: R19u1dLdgOHZ7x44
+![terraform 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-3.png)
+
+4. Ошибка в объявлении ресурса docker_image: нет имени ресурса, выполнено исправление, добавлено имя "nginx"
+Неверная ссылка на docker_image, в исходнике ресурса docker_image вообще не объявлен как "nginx" (там нет имени). После исправления из пункта 1 ссылка стала валидной.
+Ошибка в переменной имени resource "docker_image" "1nginx". Имя ресурса в Terraform не может начинаться с цифры.  
+Неверная ссылка на random_password. Ресурса random_password с именем random_string_FAKE не существует, атрибут resulT написан с ошибкой регистра: должно быть result.
+
+5. Исправленный фрагмент кода:
+```terraform
+   resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.image_id
+  name  = "example_${random_password.random_string.result}"
+```
+
+
 
 ### Задание 2
 Создан файл-контейнер размером 100 МБ и подключён как loop-устройство /dev/loop0.
