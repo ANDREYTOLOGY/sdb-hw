@@ -61,6 +61,19 @@ Cкриншот вывода команды terraform output
 
 ### Задание 5
 
-В файле locals.tf создан один блок locals {}.
+В файле locals.tf создан один блок 
+```locals {
+  vm_web_full_name = "${var.vm_web_name}-${var.vm_web_platform_id}-${var.vm_web_cores}c"
+  vm_db_full_name  = "${var.vm_db_name}-${var.vm_db_platform_id}-${var.vm_db_cores}c"
+}
+```
+В нём определены локальные переменные имён ВМ с интерполяцией из нескольких переменных Terraform
+![terraform 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform2-6.png)  
 
-В нём определены локальные переменные имён ВМ с интерполяцией из нескольких переменных Terraform 
+### Задание 6
+
+Вместо отдельных переменных *_cores, *_memory, *_core_fraction создана единая переменная vms_resources типа map(object), внутри которой заданы конфиги для обеих ВМ (web и db) в виде вложенных объектов.  
+Также параметры диска (hdd_size, hdd_type) перенесены в тот же объект и используются в boot_disk.initialize_params.  
+Создана общая переменная metadata типа map(string) и подключена в обеих ВМ как: metadata = var.metadata  
+Все старые переменные vm_web_cores, vm_web_memory, vm_web_core_fraction, vm_db_cores, vm_db_memory, vm_db_core_fraction закомментированы, так как больше не используются.
+
