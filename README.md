@@ -23,76 +23,44 @@ Cкриншот ЛК Yandex Cloud с созданной ВМ, где видно 
 
 В моём случае на платформе standard-v3 значение core_fraction = 5 оказалось недоступно — Yandex Cloud разрешил только 20/50/100, поэтому выставлено 20. Аналогично на standard-v3 минимальное количество ядер оказалось 2, поэтому пришлось использовать cores = 2 (иначе API возвращал ошибку).
 
-5. Исправленный фрагмент кода:  
+
+### Задание 2
+
+Проверка выполнена командой terraform plan
+![terraform 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform2-3.png)  
+
+В main.tf все ранее захардкоженные значения, для ресурсов yandex_compute_image и yandex_compute_instance заменены на переменные.
+
+Исправленный фрагмент кода в main.tf:  
 ```terraform
-   resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = true
+data "yandex_compute_image" "ubuntu" {
+   family = var.vm_web_image_family
 }
+resource "yandex_compute_instance" "platform" {
+   name = var.vm_web_name
+   platform_id = var.vm_web_platform_id
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name  = "example_${random_password.random_string.result}"
-```
-Вывод docker ps  
-![terraform 4](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-4.png)  
+  resources {
 
-6. Вывод docker ps c исправленным name контейнера  
-![terraform 5](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-5.png)
+    cores         = var.vm_web_cores
+    memory        = var.vm_web_memory
+    core_fraction = var.vm_web_core_fraction
 
-Terraform применит изменения без показа плана и без вопроса “yes/no”. Можно случайно разрушить/пересоздать ресурсы не в том окружении или не с теми переменными, особенно в проде.  
-Основное назначение использования ключа - для автоматизации: CI/CD пайплайны, скрипты деплоя, когда Terraform запускается неинтерактивно.  
-
-7. Cодержимое файла terraform.tfstate после terraform destroy, "resources": [] имеет пустое значение.  
-```terraform
-  {
-  "version": 4,
-  "terraform_version": "1.12.2",
-  "serial": 15,
-  "lineage": "86f9558b-6bdf-e5b1-3022-c2ecade8e431",
-  "outputs": {},
-  "resources": [],
-  "check_results": null
-}
-```
-
-8. В документации kreuzwerker/docker для docker_image параметр keep_locally описан как: если true — образ не удаляется при destroy. Если этот параметр убрать или установить keep_locally = false, то образ будет удалён вместе с ресурсами.  
-keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
-
-
-Листинг main.tf
-```terraform
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-    }
   }
-  required_version = "~>1.12.0"
-}
-provider "docker" {}
-
-
-resource "random_password" "random_string" {
-  length      = 16
-  special     = false
-  min_upper   = 1
-  min_lower   = 1
-  min_numeric = 1
-}
-
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = true
-}
-
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name  = "hello_world"
-
-  ports {
-    internal = 80
-    external = 9090
-  }
-}
 ```
+
+### Задание 3
+
+Cкриншот ЛК Yandex Cloud с созданной ВМ db
+![terraform 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform2-4.png)  
+
+### Задание 4
+
+Cкриншот вывода команды terraform output
+![terraform 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform2-5.png)  
+
+### Задание 5
+
+В файле locals.tf создан один блок locals {}.
+
+В нём определены локальные переменные имён ВМ с интерполяцией из нескольких переменных Terraform 
