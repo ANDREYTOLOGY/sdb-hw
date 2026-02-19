@@ -1,21 +1,27 @@
-# Домашнее задание к занятию "`Введение в Terraform`" - `Чернышов Андрей`
+# Домашнее задание к занятию "`Основы Terraform. Yandex Cloud`" - `Чернышов Андрей`
 
 ### Задание 1
 
-1. проверка версии Terraform  
-![terraform 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-1.png)  
+Для успешного развёртывания ВМ были внесены следующие исправления:  
+1. Исправление значения ```platform_id``` , присутствовала орфографическая ошибка в слове standard (было standart).  
+2. API Yandex Cloud сообщил, что платформа ```standard-v4``` недоступна в используемой зоне/квоте. В результате была выбрана доступная платформа: ```platform_id = "standard-v3" ``` 
+3. Исправление параметра ```core_fraction```. Для платформы ```standard-v3``` допустимы только значения 20, 50, 100. Было выбрано 20.
+4. На платформе standard-v3 нельзя использовать 1 ядро. Минимально допустимое значение — 2 ядра. поставил значение: ```cores  = 2 memory = 2```.  
+Объём памяти также был увеличен, поскольку в Yandex Cloud он связан с числом ядер и должен соответствовать допустимым комбинациям ресурсов.
 
-terraform init  
-![terraform 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-2.png)  
+Cкриншот ЛК Yandex Cloud с созданной ВМ, где видно внешний ip-адрес
+![terraform 1](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform2-1.png)  
 
-2. Допустимо хранить секреты в файле personal.auto.tfvars, потому что он явно игнорируется .gitignore и при этом Terraform автоматически подхватывает *.auto.tfvars.
-3. Ключ: R19u1dLdgOHZ7x44  
-![terraform 3](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform-3.png)
+скриншот консоли c тем же внешним ip-адресом
+![terraform 2](https://github.com/ANDREYTOLOGY/gitlab-hw/blob/main/img/terraform2-2.png)  
 
-4. Ошибка в объявлении ресурса docker_image: нет имени ресурса, выполнено исправление, добавлено имя "nginx"  
-Неверная ссылка на docker_image, в исходнике ресурса docker_image вообще не объявлен как "nginx" (там нет имени). После исправления из пункта 1 ссылка стала валидной.  
-Ошибка в переменной имени resource "docker_image" "1nginx". Имя ресурса в Terraform не может начинаться с цифры.  
-Неверная ссылка на random_password. Ресурса random_password с именем random_string_FAKE не существует, атрибут resulT написан с ошибкой регистра: должно быть result.  
+```preemptible = true``` 
+Полезно в обучении, потому что такие ВМ дешевле. Минус — их могут принудительно остановить/удалить.  
+
+```core_fraction```
+Параметр уменьшает гарантированную долю CPU и снижает стоимость ВМ — для учебных задач (поднять ВМ, подключиться по SSH, выполнить пару команд) это обычно достаточно.  
+
+В моём случае на платформе standard-v3 значение core_fraction = 5 оказалось недоступно — Yandex Cloud разрешил только 20/50/100, поэтому выставлено 20. Аналогично на standard-v3 минимальное количество ядер оказалось 2, поэтому пришлось использовать cores = 2 (иначе API возвращал ошибку).
 
 5. Исправленный фрагмент кода:  
 ```terraform
