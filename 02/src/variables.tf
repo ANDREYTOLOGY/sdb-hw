@@ -33,6 +33,42 @@ variable "vpc_name" {
 
 variable "vms_ssh_root_key" {
   type        = string
-  default     = "<your_ssh_ed25519_key>"
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHYmmMX/PVdMbdcPmj8zOgV8EbSvg+K8X2hjq3E2j2K 2i/asc@NK504-8190"
   description = "ssh-keygen -t ed25519"
+}
+
+###task 6
+
+variable "vms_resources" {
+  description = "Resources and disk config for VMs"
+  type = map(object({
+    cores         = number
+    memory        = number
+    core_fraction = number
+    hdd_size      = number
+    hdd_type      = string
+  }))
+
+  default = {
+    web = {
+      cores         = 2
+      memory        = 2
+      core_fraction = 20
+      hdd_size      = 5
+      hdd_type      = "network-hdd"
+    }
+
+    db = {
+      cores         = 2
+      memory        = 2
+      core_fraction = 20
+      hdd_size      = 5
+      hdd_type      = "network-hdd"
+    }
+  }
+}
+
+variable "metadata" {
+  description = "Common metadata for all VMs"
+  type        = map(string)
 }
