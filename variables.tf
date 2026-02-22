@@ -6,13 +6,11 @@ variable "token" {
 
 variable "cloud_id" {
   type        = string
-  default     = "b1gopu95il74aq1t5shq"
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
 }
 
 variable "folder_id" {
   type        = string
-  default     = "b1gk0ppv6q0vblbiuqsg"
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
