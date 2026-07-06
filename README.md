@@ -1,188 +1,61 @@
-# Домашнее задание к занятию "`Дипломный практикум в Yandex.Cloud`" - `Чернышов Андрей`
-
-
+# "`Дипломный практикум в Yandex.Cloud`" - `Чернышов Андрей`
 
 ### Задание 1. Создание облачной инфраструктуры
 
-Каталог:
+## Структура проекта
 
-```
-bootstrap/
-```
+Проект разделен на две независимые части.
 
-На данном этапе создаются ресурсы, необходимые для дальнейшей работы Terraform.
+### `bootstrap/`
 
-### Реализовано
-
-### Создание Service Account
-
-Файл
-
-```
-bootstrap/iam.tf
-```
-
-Создает:
+Содержит конфигурацию Terraform, предназначенную для создания базовой инфраструктуры, необходимой для работы основного проекта:
 
 - Service Account;
-- Static Access Key;
-- необходимые IAM-роли.
+- IAM-роли;
+- KMS;
+- Object Storage (S3 Backend).
 
-Назначаемые роли:
+После выполнения `bootstrap` основной Terraform использует созданный Object Storage для хранения своего состояния.
 
-- compute.admin
-- vpc.admin
-- storage.admin
-- kms.admin
-- container-registry.admin
-- k8s.admin
+### `terraform/`
 
----
+Содержит конфигурацию основной инфраструктуры проекта:
 
-### Создание KMS
+- VPC;
+- подсети;
+- Security Groups;
+- Managed Kubernetes;
+- Container Registry;
+- остальные облачные ресурсы.
 
-Файл
 
-```
-bootstrap/kms.tf
-```
+## Выполненные этапы
 
-Создает симметричный KMS-ключ, который используется для дальнейшей работы инфраструктуры.
+### Bootstrap (`bootstrap/`)
 
----
+Созданы базовые ресурсы для дальнейшей работы Terraform.
 
-### Создание Object Storage
-
-Файл
-
-```
-bootstrap/bucket.tf
-```
-
-Создает S3 Bucket.
-
-Используется для хранения:
-
-- Terraform State
-
-Включено:
-
-- Versioning
+| Файл | Назначение |
+|------|------------|
+| `iam.tf` | Service Account, IAM-роли, Static Access Key |
+| `kms.tf` | Создание KMS-ключа |
+| `bucket.tf` | Создание Object Storage для Terraform State |
+| `outputs.tf` | Вывод идентификаторов созданных ресурсов |
 
 ---
 
-### Outputs
+### Основная инфраструктура (`terraform/`)
 
-Файл
-
-```
-bootstrap/outputs.tf
-```
-
-Выводит:
-
-- Service Account ID
-- Access Key
-- Bucket Name
-- KMS Key ID
-
----
-
-# 2. Основная инфраструктура
-
-Каталог
-
-```
-terraform/
-```
-
-После выполнения bootstrap Terraform использует удаленный backend.
-
----
-
-## Backend
-
-Файл
-
-```
-terraform/backend.tf
-```
-
-Настраивает удаленное хранение Terraform State в Object Storage.
-
----
-
-## Provider
-
-Файл
-
-```
-terraform/providers.tf
-```
-
-Настройка провайдера Yandex Cloud.
-
----
-
-## Versions
-
-Файл
-
-```
-terraform/versions.tf
-```
-
-Определяет используемые версии Terraform и провайдера.
-
----
-
-## Variables
-
-Файл
-
-```
-terraform/variables.tf
-```
-
-Содержит описание всех используемых переменных.
-
----
-
-## Сеть
-
-Файл
-
-```
-terraform/network.tf
-```
-
-Создает:
-
-- VPC
-- три подсети
-
-Подсети создаются в разных зонах доступности:
-
-| Зона | Подсеть |
-|------|----------|
-| ru-central1-a | 10.10.10.0/24 |
-| ru-central1-b | 10.10.20.0/24 |
-| ru-central1-d | 10.10.30.0/24 |
-
----
-
-
----
-
-## Основная инфраструктура
-
-### Выполнено
-
-- Создана VPC
-- Созданы три подсети:
-    - ru-central1-a
-    - ru-central1-b
-    - ru-central1-d
+| Файл | Назначение |
+|------|------------|
+| `backend.tf` | Подключение удаленного backend |
+| `providers.tf` | Настройка провайдера Yandex Cloud |
+| `versions.tf` | Версии Terraform и Provider |
+| `variables.tf` | Переменные проекта |
+| `network.tf` | Создание VPC и трех подсетей |
+| `security.tf` | Security Groups *(в разработке)* |
+| `registry.tf` | Container Registry *(в разработке)* |
+| `kubernetes.tf` | Managed Kubernetes *(в разработке)* |
 
 
 Для успешного развёртывания ВМ были внесены следующие исправления:  
