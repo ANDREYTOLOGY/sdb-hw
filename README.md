@@ -4,20 +4,173 @@
 
 ### Задание 1. Создание облачной инфраструктуры
 
-# Этапы выполнения
+Каталог:
 
-## Bootstrap инфраструктуры
+```
+bootstrap/
+```
 
-На данном этапе создаются базовые ресурсы, необходимые для дальнейшей работы Terraform.
+На данном этапе создаются ресурсы, необходимые для дальнейшей работы Terraform.
 
-### Выполнено
+### Реализовано
 
-- Создан Service Account
-- Назначены IAM-роли
-- Создан Static Access Key
-- Создан KMS Key
-- Создан S3 Bucket
-- Настроено удаленное хранение Terraform State
+### Создание Service Account
+
+Файл
+
+```
+bootstrap/iam.tf
+```
+
+Создает:
+
+- Service Account;
+- Static Access Key;
+- необходимые IAM-роли.
+
+Назначаемые роли:
+
+- compute.admin
+- vpc.admin
+- storage.admin
+- kms.admin
+- container-registry.admin
+- k8s.admin
+
+---
+
+### Создание KMS
+
+Файл
+
+```
+bootstrap/kms.tf
+```
+
+Создает симметричный KMS-ключ, который используется для дальнейшей работы инфраструктуры.
+
+---
+
+### Создание Object Storage
+
+Файл
+
+```
+bootstrap/bucket.tf
+```
+
+Создает S3 Bucket.
+
+Используется для хранения:
+
+- Terraform State
+
+Включено:
+
+- Versioning
+
+---
+
+### Outputs
+
+Файл
+
+```
+bootstrap/outputs.tf
+```
+
+Выводит:
+
+- Service Account ID
+- Access Key
+- Bucket Name
+- KMS Key ID
+
+---
+
+# 2. Основная инфраструктура
+
+Каталог
+
+```
+terraform/
+```
+
+После выполнения bootstrap Terraform использует удаленный backend.
+
+---
+
+## Backend
+
+Файл
+
+```
+terraform/backend.tf
+```
+
+Настраивает удаленное хранение Terraform State в Object Storage.
+
+---
+
+## Provider
+
+Файл
+
+```
+terraform/providers.tf
+```
+
+Настройка провайдера Yandex Cloud.
+
+---
+
+## Versions
+
+Файл
+
+```
+terraform/versions.tf
+```
+
+Определяет используемые версии Terraform и провайдера.
+
+---
+
+## Variables
+
+Файл
+
+```
+terraform/variables.tf
+```
+
+Содержит описание всех используемых переменных.
+
+---
+
+## Сеть
+
+Файл
+
+```
+terraform/network.tf
+```
+
+Создает:
+
+- VPC
+- три подсети
+
+Подсети создаются в разных зонах доступности:
+
+| Зона | Подсеть |
+|------|----------|
+| ru-central1-a | 10.10.10.0/24 |
+| ru-central1-b | 10.10.20.0/24 |
+| ru-central1-d | 10.10.30.0/24 |
+
+---
+
 
 ---
 
